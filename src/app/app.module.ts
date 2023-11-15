@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {FormsModule } from '@angular/forms';
 
 import { BootstrapIconsModule } from 'ng-bootstrap-icons';
 import { Alarm, App, Bookmark } from 'ng-bootstrap-icons/icons';
 import { allIcons } from 'ng-bootstrap-icons/icons';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -29,7 +31,9 @@ const icons = {
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    BootstrapIconsModule.pick(allIcons)
+    BootstrapIconsModule.pick(allIcons),
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
