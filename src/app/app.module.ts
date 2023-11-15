@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { KarbantasComponent } from './karbantas/karbantas.component';
 import { NavComponent } from './nav/nav.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SearchPipe } from './search.pipe';
+import { SortPipe } from './sort.pipe';
 
 const icons = {
   Alarm,
@@ -25,7 +27,9 @@ const icons = {
     AppComponent,
     HomeComponent,
     KarbantasComponent,
-    NavComponent
+    NavComponent,
+    SearchPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,

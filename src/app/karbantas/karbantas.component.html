@@ -1,2 +1,47 @@
-<bi name="arrow-down-up" class="someclass"></bi>
-{{products|json}}
+
+<!-- {{products|json}} -->
+<div class="row">
+    <div class="col-4">
+        Keresés:
+        <input [(ngModel)]="keresendo" type="text" class="form-control">
+    </div>
+</div>
+
+<div class="row">
+    <div *ngFor="let oszlop of oszlopok" class="col my-3 fw-bold">
+        <span>{{oszlop.text}} </span> 
+        <span><bi (click)="sort(oszlop.key,oszlop.type)" name="arrow-down-up"></bi></span>
+    </div>
+    <div class="col">
+        Műveletek
+    </div>
+</div>
+
+<div class="row my-2">
+    <div *ngFor="let oszlop of oszlopok" class="col ">
+        <ng-container *ngIf="oszlop.type=='plain'; else input">
+            <span>{{oszlop.text}} </span> 
+        </ng-container>
+        <ng-template #input>
+            <input [(ngModel)]="newProduct[oszlop.key]" [type]="oszlop.type" class="form-control">
+        </ng-template>   
+     </div>
+     <div class="col">
+        <button (click)="addProduct()" type="button" class="btn btn-primary">Hozzáad</button>
+     </div>
+</div>
+
+<div *ngFor="let termek of (products|search:keresendo)|sort:mezo:irany" class="row my-1">
+    <div *ngFor="let oszlop of oszlopok" class="col">
+        <ng-container *ngIf="oszlop.type=='plain'; else input">
+            <span>{{termek[oszlop.key]}} </span> 
+        </ng-container>
+        <ng-template #input>
+            <input [(ngModel)]="termek[oszlop.key]" [type]="oszlop.type" class="form-control">
+        </ng-template>   
+     </div>
+     <div class="col">
+        <button (click)="updateProduct(termek)" type="button" class="btn btn-primary">Szerkeszt</button>
+        <button (click)="deleteProduct(termek)" type="button" class="btn btn-primary">Töröl</button>
+     </div>
+</div>
