@@ -9,8 +9,13 @@
 
 <div class="row">
     <div *ngFor="let oszlop of oszlopok" class="col my-3 fw-bold">
-        <span>{{oszlop.text}} </span> 
-        <span><bi (click)="sort(oszlop.key,oszlop.type)" name="arrow-down-up"></bi></span>
+        <span (click)="rendez(oszlop.key,oszlop.type)">{{oszlop.text}} </span> 
+       
+        <ng-container *ngIf="mezo==oszlop.key">    
+            <span><bi *ngIf="irany==1" name="arrow-up"></bi></span>
+            <span><bi *ngIf="irany==2" name="arrow-down"></bi></span>
+        </ng-container>   
+
     </div>
     <div class="col">
         Műveletek
@@ -42,6 +47,6 @@
      </div>
      <div class="col">
         <button (click)="updateProduct(termek)" type="button" class="btn btn-primary">Szerkeszt</button>
-        <button (click)="deleteProduct(termek)" type="button" class="btn btn-primary">Töröl</button>
+        <button (click)="deleteProduct(termek)" type="button" class="ms-2 btn btn-primary">Töröl</button>
      </div>
 </div>

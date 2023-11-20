@@ -11,11 +11,19 @@ export class SearchPipe implements PipeTransform {
 
     return adatok.filter(
       (sor:any)=> {
-        // console.log(sor)
-        // console.log(sor.name)
-        
+             
         // return sor.name.toLowerCase().includes(keresendo.toLowerCase())
-        return JSON.stringify(sor).toLowerCase().includes(keresendo.toLowerCase())
+        // return JSON.stringify(sor).toLowerCase().includes(keresendo.toLowerCase())
+        
+        for (const mezo in sor) {         
+          if (typeof(sor[mezo])=="number"){          
+            if  (sor[mezo]==Number(keresendo.replace(",",".")))              
+              return true
+            }
+          else if (sor[mezo].toLowerCase().includes(keresendo.toLowerCase()))
+            return true
+        }
+        return false
       }
     )
 

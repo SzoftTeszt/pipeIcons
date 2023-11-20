@@ -10,12 +10,12 @@ import { ConfigService } from '../config.service';
 export class KarbantasComponent {
 
   products:any
-  oszlopok:any
+  oszlopok:any=[]
   newProduct:any={}
   keresendo:any
 
   mezo:any
-  irany=false
+  irany=0
   
 
   constructor(private base:BaseService, private config:ConfigService){
@@ -24,11 +24,20 @@ export class KarbantasComponent {
       )
       
       this.oszlopok=this.config.getProdutsColumns()
+      this.mezo=this.oszlopok[0]
   }
 
-  sort(key:any,type:any){
+  rendez(key:any,type:any){
+    
     this.mezo=key
-    this.irany=!this.irany
+    this.irany++
+    if (this.irany==3)
+    {
+      this.irany=0
+      this.mezo=this.oszlopok[0].key
+
+    }
+  
   }
 
   addProduct(){
