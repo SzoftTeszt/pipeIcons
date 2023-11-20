@@ -1,11 +1,11 @@
-
+<ng-container *ngIf="oszlopok && products">
 <!-- {{products|json}} -->
-<div class="row">
+<!-- <div class="row">
     <div class="col-4">
         Keresés:
         <input [(ngModel)]="keresendo" type="text" class="form-control">
     </div>
-</div>
+</div> -->
 
 <div class="row">
     <div *ngFor="let oszlop of oszlopok" class="col my-3 fw-bold">
@@ -18,7 +18,7 @@
 
     </div>
     <div class="col">
-        Műveletek
+        {{messages.actionHeaders}}
     </div>
 </div>
 
@@ -32,7 +32,7 @@
         </ng-template>   
      </div>
      <div class="col">
-        <button (click)="addProduct()" type="button" class="btn btn-primary">Hozzáad</button>
+        <button (click)="addProduct()" type="button" class="btn btn-primary">{{messages.btnAdd}}</button>
      </div>
 </div>
 
@@ -46,7 +46,8 @@
         </ng-template>   
      </div>
      <div class="col">
-        <button (click)="updateProduct(termek)" type="button" class="btn btn-primary">Szerkeszt</button>
-        <button (click)="deleteProduct(termek)" type="button" class="ms-2 btn btn-primary">Töröl</button>
+        <button (click)="updateProduct(termek)" type="button" class="btn btn-primary">{{messages.btnEdit}}</button>
+        <button (click)="deleteProduct(termek)" type="button" class="ms-2 btn btn-primary">{{messages.btnDelete}}</button>
      </div>
 </div>
+</ng-container>

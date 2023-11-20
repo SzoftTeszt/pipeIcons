@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BaseService } from '../base.service';
 import { ConfigService } from '../config.service';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-karbantas',
@@ -13,18 +14,35 @@ export class KarbantasComponent {
   oszlopok:any=[]
   newProduct:any={}
   keresendo:any
-
+  messages:any
   mezo:any
   irany=0
   
 
-  constructor(private base:BaseService, private config:ConfigService){
+  constructor(private base:BaseService, 
+      private config:ConfigService,
+      private search:SearchService){
+
       this.base.getProducts().subscribe(
         (adatok)=>this.products=adatok
       )
       
-      this.oszlopok=this.config.getProdutsColumns()
-      this.mezo=this.oszlopok[0]
+      this.config.getMessagges().subscribe(
+        (res:any)=>{        
+          if (res.length!=0){
+            this.messages=res.karbantartas
+            this.oszlopok=res.karbantartas?.termekekOszlopok
+            // console.log("resif",res)
+            // console.log("oszlopokif",this.oszlopok)
+            this.mezo=this.oszlopok[0]
+          }
+        }
+        )
+
+        this.search.getSearch().subscribe(
+          (res)=>this.keresendo=res
+        )
+      
   }
 
   rendez(key:any,type:any){

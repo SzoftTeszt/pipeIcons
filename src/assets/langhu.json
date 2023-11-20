@@ -1,0 +1,31 @@
+{
+    "karbantartas":{
+    "termekekOszlopok":[
+        {"key":"id", "text":"#", "type":"plain"},
+        {"key":"name", "text":"Név", "type":"text"},
+        {"key":"price", "text":"Ár", "type":"number"},
+        {"key":"description", "text":"Leírás", "type":"text"},
+        {"key":"image_url", "text":"Kép", "type":"text"}
+      ],
+      "actionHeaders":"Műveletek",
+      "btnAdd":"Hozzáad",
+      "btnEdit":"Szerkeztés",
+      "btnDelete":"Törlés"
+    
+    },
+    
+    "nav":{
+        "menu":[
+            {"text":"Kezdőoldal", "link":"/home"},
+            {"text":"Termékek", "link":"/karbantartas"},
+            {"text":"Bejelentkezés", "link":"/signin"}           
+        ],
+        "nyelv":[
+            {"text":"Magyar", "sign":"hu"},
+            {"text":"English", "sign":"en"}
+        ],
+        "search":"Keresés"
+
+    }  
+
+}
