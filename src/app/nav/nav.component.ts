@@ -27,4 +27,9 @@ export class NavComponent {
   setSearch(val:any){
     this.search.setSearch(val)
   }
+
+  onFocusOutEvent(v:any){
+    if (!v) this.setSearch("")
+
+  }
 }

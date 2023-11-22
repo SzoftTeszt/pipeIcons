@@ -16,9 +16,9 @@
     
     "nav":{
         "menu":[
-            {"text":"Kezdőoldal", "link":"/home"},
-            {"text":"Termékek", "link":"/karbantartas"},
-            {"text":"Bejelentkezés", "link":"/signin"}           
+            {"text":"Kezdőoldal", "link":"home" , "comp":"HomeComponent" },
+            {"text":"Termékek", "link":"karbantartas", "comp":"KarbantasComponent"},
+            {"text":"Bejelentkezés", "link":"signin", "comp":"SigninComponent"}           
         ],
         "nyelv":[
             {"text":"Magyar", "sign":"hu"},

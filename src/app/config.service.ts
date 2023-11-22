@@ -10,7 +10,7 @@ export class ConfigService {
   private textSub= new BehaviorSubject([])
   
   constructor(private http:HttpClient) {
-    this.loadLangJson('hu')
+    // this.loadLangJson('hu')
    }
 
   loadLangJson(sign:any){
