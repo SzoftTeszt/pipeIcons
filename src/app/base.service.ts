@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class BaseService {
-  url="http://localhost:3000/products/"
+  url="https://productswebshop-9808a-default-rtdb.europe-west1.firebasedatabase.app/products/.json"
 
   termekekSub= new BehaviorSubject([{}])
   
@@ -16,10 +16,19 @@ export class BaseService {
 
   private downloadProducts(){
     this.http.get(this.url).subscribe(
-      (a:any)=>{       
-        this.termekekSub.next(a)
-      }
+      (a:any)=>{   
+        let tomb=[]
+        console.log("Vissza:",a) 
+        for (const k in a) {
+          console.log(a[k])
+          tomb.push(a[k])
+          }
+          this.termekekSub.next(tomb)  
+        }
     )
+        
+        // this.termekekSub.next(a)
+      
   }
   
   getProducts(){

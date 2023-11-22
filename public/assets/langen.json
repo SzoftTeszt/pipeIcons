@@ -1,0 +1,34 @@
+{
+    "karbantartas":{
+    "termekekOszlopok":[
+        {"key":"id", "text":"#", "type":"plain"},
+        {"key":"name", "text":"Name", "type":"text"},
+        {"key":"price", "text":"Price", "type":"number"},
+        {"key":"description", "text":"Description", "type":"text"},
+        {"key":"image_url", "text":"ImageUrl", "type":"text"}
+      ],
+      "actionHeaders":"Actions",
+      "btnAdd":"Add",
+      "btnEdit":"Edit",
+      "btnDelete":"Delete"
+    
+    },
+
+    "nav":{
+      
+
+        "menu":[
+            {"text":"Home", "link":"home" , "comp":"HomeComponent" },
+            {"text":"Products", "link":"karbantartas", "comp":"KarbantasComponent"},
+            {"text":"Sign In", "link":"signin", "comp":"SigninComponent"}           
+        ],
+
+        "nyelv":[
+            {"text":"Magyar", "sign":"hu"},
+            {"text":"English", "sign":"en"}
+        ],
+        "search":"Search"
+
+    }  
+
+}
